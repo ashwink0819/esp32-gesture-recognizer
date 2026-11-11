@@ -61,7 +61,7 @@ void loop() {
   if (!readRaw(v)) { Serial.println("I2C read failed"); return; }
 
   // Units: accel in g, gyro in deg/s. Labels make Serial Plotter show named lines.
-  Serial.printf("ax:%.3f,ay:%.3f,az:%.3f,gx:%.2f,gy:%.2f,gz:%.2f\n",
+    Serial.printf("%.3f,%.3f,%.3f,%.2f,%.2f,%.2f\n",
     v[0] / 16384.0, v[1] / 16384.0, v[2] / 16384.0,
     (v[4] - gxOff) / 131.0, (v[5] - gyOff) / 131.0, (v[6] - gzOff) / 131.0);
 }
