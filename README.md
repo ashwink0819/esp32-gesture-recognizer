@@ -48,8 +48,6 @@ MPU6050 (I2C, 100 Hz) → ESP32 → motion trigger → 2 s window (6 axes × 200
 | SCL | GPIO22 |
 | SDA | GPIO21 |
 
-![Wiring](docs/wiring.png)
-
 
 ## Dataset
 
