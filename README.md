@@ -19,6 +19,8 @@ Wave a motion sensor, and an ESP32 recognises the gesture **on-device** with a s
 
 Most on-device misses were **"uncertain"** (below the 80% confidence threshold, so nothing fires), not wrong gestures: only 4 of 40 live attempts produced a confidently wrong label.
 
+![Test confusion matrix](docs/confusion_matrix_test_v3.png)
+
 ---
 
 ## How it works
@@ -48,13 +50,10 @@ MPU6050 (I2C, 100 Hz) → ESP32 → motion trigger → 2 s window (6 axes × 200
 | SCL | GPIO22 |
 | SDA | GPIO21 |
 
-
 ## Dataset
 
-- **Training: me only.** Started at ~25 samples/class, then added targeted samples after testing (see below): varied circles, pick-up/put-down idles, and slow up-down swipes.
 - **Training: me only** (`data/ashwin/`). Started at ~25 samples/class, then added targeted samples after testing (see below): varied circles, pick-up/put-down idles, and slow up-down swipes.
 - **Test: a second person** (`data/mom/`, 25 samples/class), **never used for training**, plus ~5/class of my own from the automatic split.
-- **Test: a second person** (25 samples/class), **never used for training**, plus ~5/class of my own from the automatic split.
 - Fixed grip: board flat in the right hand, chip up, arrow pointing away from the user.
 - Each sample is 2 s at 100 Hz, 6 channels (ax, ay, az in g; gx, gy, gz in °/s).
 
